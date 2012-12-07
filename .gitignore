@@ -1,0 +1,15 @@
+*.obj
+*.exe
+*.pdb
+*.suo
+*.bak
+*.cache
+*.log
+*.user
+bin
+[Dd]ebug
+*.lib
+*.sbr
+*.orig
+obj
+_ReSharper*/

@@ -1,0 +1,86 @@
+﻿@model List<GAListener.Models.Hit>
+
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Recorded hits</h2>
+@Html.ValidationSummary(null, new { @class = "alert alert-error alert-block" })
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<td>Date/Time</td>
+			<td>Client IP</td>
+			<td>utmwv</td>
+			<td>utms</td>
+			<td>utmn</td>
+			<td>utmhn</td>
+			<td>utmt</td>
+			<td>utme</td>
+			<td>utmcs</td>
+			<td>utmsr</td>
+			<td>utmvp</td>
+			<td>utmsc</td>
+			<td>utmul</td>
+			<td>utmje</td>
+			<td>utmfl</td>
+			<td>utmdt</td>
+			<td>utmhid</td>
+			<td>utmr</td>
+			<td>utmp</td>
+			<td>utmac</td>
+			<td>utmcc</td>
+			<td>utmu</td>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var hit in Model) {
+			<tr>
+				<td>@hit.Recorded</td>
+				<td>@hit.ClientIP</td>
+				<td>@Shorten(hit.utmwv)</td>
+				<td>@Shorten(hit.utms)</td>
+				<td>@Shorten(hit.utmn)</td>
+				<td>@Shorten(hit.utmhn)</td>
+				<td>@Shorten(hit.utmt)</td>
+				<td>@Shorten(hit.utme)</td>
+				<td>@Shorten(hit.utmcs)</td>
+				<td>@Shorten(hit.utmsr)</td>
+				<td>@Shorten(hit.utmvp)</td>
+				<td>@Shorten(hit.utmsc)</td>
+				<td>@Shorten(hit.utmul)</td>
+				<td>@Shorten(hit.utmje)</td>
+				<td>@Shorten(hit.utmfl)</td>
+				<td>@Shorten(hit.utmdt)</td>
+				<td>@Shorten(hit.utmhid)</td>
+				<td>@Shorten(hit.utmr)</td>
+				<td>@Shorten(hit.utmp)</td>
+				<td>@Shorten(hit.utmac)</td>
+				<td>@Shorten(hit.utmcc)</td>
+				<td>@Shorten(hit.utmu)</td>
+			</tr>
+		}
+	</tbody>
+</table>
+@if (Model.Count >= ViewBag.Max) {
+	<p>
+		<a href="?s=@ViewBag.Search&o=@(ViewBag.Offset + ViewBag.Max)">more</a>
+	</p>
+}
+
+<form method="POST" action="/clearall">
+	<input type="submit" value="CLEAR ALL" class="btn btn-danger"/>
+</form>
+
+@helper Shorten(object value) {
+	<span title="@value">
+		@if (value == null) {
+			<i>-</i>
+		}
+		else if (value.ToString().Length >= 10) {
+			@value.ToString().Substring(0, 10)<text>...</text>
+		}
+		else {
+			@value
+		}
+	</span>
+}
