@@ -6,9 +6,17 @@
 	using System.Linq;
 	using Models;
 
-	public class HitRepository
+	public interface IHitRepository
 	{
-		private static ConcurrentBag<Hit> _hits = new ConcurrentBag<Hit>();
+		void Record(Hit hit);
+		List<Hit> Get(string expression, int take, int offset);
+		List<Hit> Get(int take, int offset);
+		void Clear();
+	}
+
+	public class HitRepository : IHitRepository
+	{
+		private ConcurrentBag<Hit> _hits = new ConcurrentBag<Hit>();
 
 		public void Record(Hit hit)
 		{

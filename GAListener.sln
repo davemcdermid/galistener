@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAListener", "GAListener\GAListener.csproj", "{E1ABD4C3-E54B-4BCB-A99E-99E2E3C138AE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAListener.Tests", "GAListener.Tests\GAListener.Tests.csproj", "{56D69D96-0C73-4EE6-9B5B-2799050813D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{E1ABD4C3-E54B-4BCB-A99E-99E2E3C138AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1ABD4C3-E54B-4BCB-A99E-99E2E3C138AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1ABD4C3-E54B-4BCB-A99E-99E2E3C138AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56D69D96-0C73-4EE6-9B5B-2799050813D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56D69D96-0C73-4EE6-9B5B-2799050813D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56D69D96-0C73-4EE6-9B5B-2799050813D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56D69D96-0C73-4EE6-9B5B-2799050813D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

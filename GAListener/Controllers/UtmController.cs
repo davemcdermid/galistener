@@ -1,20 +1,19 @@
-﻿using System.Configuration;
-using System.Linq.Dynamic;
-
-namespace GAListener.Controllers
+﻿namespace GAListener.Controllers
 {
+	using System;
+	using System.Configuration;
 	using System.Web.Mvc;
-	using GAListener.Models;
-	using GAListener.Repository;
+	using Models;
+	using Repository;
 
     public class UtmController : Controller
     {
-	    private readonly HitRepository _hitRepository;
+	    private readonly IHitRepository _hitRepository;
 		private readonly int Max;
 
-	    public UtmController()
-		{
-			_hitRepository = new HitRepository();
+	    public UtmController(IHitRepository hitRepository)
+	    {
+		    _hitRepository = hitRepository;
 		    Max = int.Parse(ConfigurationManager.AppSettings["MaxResults"]);
 		}
 
@@ -34,7 +33,7 @@ namespace GAListener.Controllers
 				try {
 					return View(_hitRepository.Get(s, Max, o ?? 0));
 				}
-				catch (ParseException e) {
+				catch (Exception e) {
 					ModelState.AddModelError("s", e.Message);
 				}
 			}
@@ -47,6 +46,5 @@ namespace GAListener.Controllers
 			_hitRepository.Clear();
 			return RedirectToAction("gethits");
 		}
-
     }
 }

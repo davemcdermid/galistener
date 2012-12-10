@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace GAListener.Models
+﻿namespace GAListener.Models
 {
+	using System;
+
 	public class Hit
 	{
 		public Hit()
