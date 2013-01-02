@@ -10,6 +10,7 @@
     {
 	    private readonly IHitRepository _hitRepository;
 		private readonly int Max;
+	    private readonly byte[] tinyImage = Convert.FromBase64String(@"R0lGODlhAQABAID/AP///wAAACwAAAAAAQABAAACAkQBADs=");
 
 	    public UtmController(IHitRepository hitRepository)
 	    {
@@ -21,7 +22,7 @@
 		{
 			hit.ClientIP = Request.UserHostAddress;
 			_hitRepository.Record(hit);
-			return new EmptyResult();
+			return File(tinyImage, "image/gif");
 		}
 
 		public ActionResult GetHits(Hit hit, int? o, string s)
