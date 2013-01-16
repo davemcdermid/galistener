@@ -76,7 +76,7 @@
 		@if (value == null) {
 			<i>-</i>
 		}
-		else if (value.ToString().Length >= 10) {
+		else if (value.ToString().Length > 10) {
 			@value.ToString().Substring(0, 10)<text>...</text>
 		}
 		else {
